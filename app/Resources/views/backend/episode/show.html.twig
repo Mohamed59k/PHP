@@ -1,0 +1,40 @@
+{% extends 'backend.html.twig' %}
+
+{% block body %}
+    <h1>{{ tvSeries.name }}</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ tvSeries.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ tvSeries.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ tvSeries.description }}</td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td>{{ tvSeries.image }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_AEIndex',{'id':tvSeries.tvSeriesId}) }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('_AEEdit', { 'id': tvSeries.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ tv.name }} Episode list</h1>
+    <table>
+        <thead>
+        <tr>
+            {# sorting of properties based on query components #}
+            <th>Name</th>
+            <th>EpisodeNumber</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for e in episodes %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td><a href="{{ path('_userEpisodeNew', { 'id': e.id }) }}">{{ e.name }}</a></td>
+                <td>{{ e.episodeNumber }}</td>
+                <td>{{ e.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(episodes) }}
+    </div>
+{% endblock %}

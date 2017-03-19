@@ -1,0 +1,45 @@
+{% extends 'backend.html.twig' %}
+{% block body %}
+    <div>
+        <h1>Tvseries list</h1>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>{{ knp_pagination_sortable(tvSeries, 'Name', 'tv.id') }}</th>
+            <th>Author</th>
+            <th>Releasedat</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for tvSeries in tvSeries %}
+            <tr>
+                <td><a href="{{ path('_AEIndex', { 'id': tvSeries.id }) }}">{{ tvSeries.name }}</a></td>
+                <td>{{ tvSeries.author }}</td>
+                <td>{% if tvSeries.releasedAt %}{{ tvSeries.releasedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tvSeries.description }}</td>
+                <td>{{ tvSeries.image }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('_show', { 'id': tvSeries.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <ul>
+        <li>
+            <a href="{{ path('_new') }}">Create a new tvSeries</a>
+        </li>
+    </ul>
+    <div class="navigation">
+        {{ knp_pagination_render(tvSeries) }}
+    </div>
+{% endblock %}
