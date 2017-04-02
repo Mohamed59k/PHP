@@ -1,4 +1,10 @@
 tvseries
 ========
 
-A Symfony project created on January 10, 2017, 3:16 pm.
+Executer ces 2 commandes pour pouvoir installer les librairies et tester le projet :
+
+php composer.phar require knplabs/knp-paginator-bundle
+
+php composer.phar require friendsofsymfony/user-bundle "~2.0@dev"
+
+
