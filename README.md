@@ -1,6 +1,8 @@
 tvseries
 ========
 
+XU Xiaofan - MEGDOUD Mohamed
+
 Executer ces 2 commandes pour pouvoir installer les librairies et tester le projet :
 
 php composer.phar require knplabs/knp-paginator-bundle
